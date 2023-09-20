@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <h1>United Kingdom Crime Statistics</h1>
+    <p>Welcome to my portfolio page where you can explore crime data in the UK with the latest statistics. This page displays plots generated after running an Airflow ETL pipeline that extracts data from the UK Police API, cleans the data, and visualizes some plots. In addition, you can also explore the Airflow user interface by logging in as a guest with the username and password provided.</p>
+</div>
+
+<div class="container plot-container">
+    <div class="plot">
+        <h2>City Crime Rate</h2>
+        {% include 'etl/crime.html' %}
+    </div>
+    <div class="plot">
+        <h2>Crime Categories</h2>
+        {% include 'etl/crime_plot2.html' %}
+    </div>
+</div>
+
+<div class="container">
+    <h2>Download Data</h2>
+    <p>You can Download the most recent data from the UK police api here. This pipeline runs automatically every 4 weeks. </p>
+    <div class="button-container">
+        <a href="{% url 'raw_crime_data' %}" download class="button">Raw Data</a>
+        <a href="{% url 'cleaned_crime_data' %}" download class="button">Cleaned Data</a>
+    </div>
+
+</div>
+
+<div class="container">
+    <h2>Explore Airflow User Interface</h2>
+    <p>Explore active DAGS on the Airflow User Interface. Use guest as username and password. </p>
+    <div class="button-container">
+        <a href="http://localhost:8081" download class="button">Explore DAGS</a>
+    </div>
+
+</div>
+
+<style>
+    .container {
+        margin: 40px auto;
+        max-width: 800px;
+        text-align: center;
+    }
+
+    .plot-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 40px;
+        margin-left: -150px;
+    }
+
+    .plot {
+        background-color: #0b0101;
+        box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+        padding: 20px;
+        width: 100%;
+        max-width: 400px;
+    }
+
+    .plot h2 {
+        font-size: 1.5rem;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+    }
+
+    .button-container {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .button {
+        display: inline-block;
+        background-color: #009688;
+        color: #fff;
+        padding: 10px 20px;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease-in-out;
+        cursor: pointer;
+    }
+
+    .button:hover {
+        background-color: #00796b;
+    }
+</style>
+
+{% endblock %}

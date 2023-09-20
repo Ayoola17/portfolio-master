@@ -1,0 +1,19 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-lg-5 pl-lg-5">
+    <div class="section-heading">
+        <h2>Predicted <strong> Result</strong></h2>
+    {{ predicted_head|safe }}
+
+</div>
+
+     
+<img src=data:image/png;base64,{{visual_prediction}} alt="Image placeholder" class="img-fluid">
+    
+<div class="container">
+    <h1>Download DataFrame</h1>
+    <p>Click the button below to download the DataFrame as a CSV file.</p>
+    <a href="{% url 'download_dataframe' %}" download class="button">Download CSV</a>
+</div>
+{% endblock %}

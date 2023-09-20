@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Error</title>
+	<style>
+		/* Customize this CSS to create your own design */
+		body {
+			background-color: #060f0f;
+			font-family: Arial, sans-serif;
+			color: #fff;
+			font-size: 16px;
+			line-height: 1.5;
+		}
+		
+		.container {
+			margin: 0 auto;
+			padding: 50px;
+			max-width: 800px;
+			text-align: center;
+			border-radius: 10px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+		}
+		
+		h1 {
+			font-size: 48px;
+			margin-bottom: 40px;
+			text-transform: uppercase;
+			letter-spacing: 4px;
+		}
+		
+		p {
+			font-size: 24px;
+			margin-bottom: 40px;
+			font-weight: 600;
+		}
+		
+		.button {
+			display: inline-block;
+			background-color: #0066cc;
+			color: #fff;
+			padding: 20px 40px;
+			font-size: 24px;
+			border-radius: 5px;
+			text-decoration: none;
+			transition: background-color 0.3s ease-in-out;
+			cursor: pointer;
+		}
+		
+		.button:hover {
+			background-color: #0055aa;
+		}
+
+		.hint {
+			background-color: #fff;
+			color: #333;
+			padding: 20px;
+			margin-top: 40px;
+			border-radius: 5px;
+			box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+			font-size: 16px;
+			line-height: 1.5;
+			text-align: left;
+		}
+		
+		.hint-title {
+			font-size: 24px;
+			font-weight: 600;
+			margin-bottom: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Error</h1>
+		<p>An error occurred: {{ error_message }}</p>
+        <a href="/" class="button">Go back to homepage</a>
+
+        <div class="hint">
+        	<div class="hint-title">Hint</div>
+        	<p>Make sure you have selected the right Target column. Also make sure you have uploaded the right Train and Test Dataset.</p>
+        </div>
+	</div>
+</body>
+</html>
+

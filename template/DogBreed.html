@@ -1,0 +1,86 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+
+
+{% block content%}
+
+<section class="site-hero" style="background-image: url( '{% static 'images/DogBreed.jpg' %}');" id="section-home" data-stellar-background-ratio="0.5">
+    <div class="container">
+            <div class="row intro-text align-items-center justify-content-center">
+                <div class="col-md-10 text-center pt-5">
+
+                    <h1 class="site-heading site-animate">Hello, I'm <strong class="d-block">Olly the Dog Breed Identifier</strong></h1>
+                    <strong class="d-block text-white text-uppercase letter-spacing">Show me a picture of a Dog and I will tell you the breed</strong>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+<script type="text/javascript">
+ function showHide() {
+   var div = document.getElementById("prediction");
+   if (div.style.display == 'none') {
+     div.style.display = 'block';
+   }
+   else {
+     div.style.display = 'none';
+   }
+ }
+</script>
+    
+    
+
+<section class="resume-item mb-4" id="section-about">
+
+
+    <br>
+   
+    <form method="post" enctype="multipart/form-data" action="predictImage" >
+  
+ {% csrf_token %}
+ <div class="col-md-4 col-sm-4"><label for="fname">Upload Image File Here:</label> </div> 
+ <input name="filePath" type="file" placeholder="Please upload an Image" accept=".jpeg,.jpg,.png,.gif" required><br><br>
+ <br>
+
+ 
+ <input type="submit" value="Submit" name="submit" >
+</div>
+
+</form>
+</section>
+
+
+<section>
+<br>
+
+
+        <div class="container" id="prediction" style="display:block" >
+            <div class="row mb-5 align-items-center">
+                <div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
+                    <img src={{filePathName}} alt="Image placeholder" class="img-fluid">
+                </div>
+                <div class="col-lg-5 pl-lg-5">
+                    <div class="section-heading">
+                        <h2>Dog <strong>Breed</strong></h2>
+                    </div>
+                    <p class="lead">{{predictedLabel}}</p>
+                    <p class="mb-5  "></p>
+
+                    
+                </div>
+            </div>
+
+
+        </div>
+
+
+
+
+
+
+    </section>
+
+{% endblock %}

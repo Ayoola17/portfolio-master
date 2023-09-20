@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h2>Upload <strong>File</strong></h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-primary">Upload</button>
+    </form>
+</div>
+<style>
+    .container {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        font-size: 3rem;
+        text-align: center;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: #0f0202;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        padding: 40px;
+        margin: 20px;
+        max-width: 450px;
+    }
+
+    label {
+        font-size: 1.2rem;
+        margin-bottom: 10px;
+    }
+
+    input[type="file"] {
+        padding: 10px;
+        margin-bottom: 20px;
+        border: none;
+        border-radius: 5px;
+        background-color: #f2f2f2;
+        font-size: 1rem;
+        width: 100%;
+        color: #444;
+    }
+
+    button[type="submit"] {
+        padding: 10px 20px;
+        background-color: #0088cc;
+        color: #fff;
+        font-size: 1.2rem;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease-in-out;
+    }
+
+    button[type="submit"]:hover {
+        background-color: #006699;
+    }
+
+    @media only screen and (max-width: 600px) {
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        form {
+            padding: 20px;
+            margin: 10px;
+            max-width: 300px;
+        }
+
+        input[type="file"] {
+            font-size: 1rem;
+        }
+
+        button[type="submit"] {
+            font-size: 1rem;
+            padding: 10px 15px;
+        }
+    }
+</style>
+{% endblock %}

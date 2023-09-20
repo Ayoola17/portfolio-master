@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="col-lg-7 pr-lg-5 mb-5 mb-lg-0">
+  <img src="data:image/png;base64,{{ image_data }}" />
+</div>
+
+<h1>Upload Test Data for Prediction</h1>
+  <form method="post" enctype="multipart/form-data" action="{% url 'prediction' %}">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="file" name="csv_file" accept=".csv">
+    <input type="submit" value="Upload">
+  </form>
+
+  <div class="col-lg-5 pl-lg-5">
+    <div class="section-heading">
+        <h2>Data with <strong>Predicted Label</strong></h2>
+        <p class="lead">{{ predicted_head|safe }}</p>
+        <p class="mb-5  "></p>
+   
+</div>
+{% endblock %}
+

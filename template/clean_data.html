@@ -1,0 +1,107 @@
+
+
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="col-lg-6">
+        <div class="card border-0 bg-transparent">
+            <div class="card-body p-0">
+                <h2 class="text-uppercase font-weight-bold">Missing Values</h2>
+                <div class="py-4">
+                    {{ missing_values|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-6">
+        <div class="card border-0 bg-transparent">
+            <div class="card-body p-0">
+                <h2 class="text-uppercase font-weight-bold">Missing Values Visual</h2>
+                <div class="py-4 text-center">
+                    <img src="data:image/png;base64,{{ missing_values_visual }}" class="img-fluid" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-5">
+    <div class="col-lg-12">
+        <div class="card border-0 bg-transparent">
+            <div class="card-body p-0">
+                <h2 class="text-uppercase font-weight-bold">Cleaned Dataset</h2>
+                <div class="py-4">
+                    {{ clean_data|safe }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="text-center mb-5">Download Cleaned Data</h1>
+            <div class="text-center">
+                <a href="{% url 'cleaned_data_download' %}" download class="btn btn-primary">Download CSV</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    body {
+        font-family: 'Montserrat', sans-serif;
+        background-color: #2a2d2de6;
+    }
+
+    h1, h2, h3 {
+        font-weight: 800;
+        color: #cfc9c9;
+        margin-bottom: 30px;
+        letter-spacing: 2px;
+    }
+
+    .card {
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+        font-weight: 600;
+        letter-spacing: 1px;
+        transition: all 0.3s ease-in-out;
+    }
+
+    .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+    }
+
+    table {
+        width: 100%;
+        margin-bottom: 1rem;
+        background-color: transparent;
+        border-collapse: collapse;
+        border-spacing: 0;
+    }
+
+    th, td {
+        padding: 0.75rem;
+        vertical-align: top;
+        border-top: 1px solid #dee2e6;
+    }
+
+    th {
+        font-weight: bold;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+</style>
+{% endblock %}

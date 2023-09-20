@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+  <form method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="file" name="csv_file" accept=".csv">
+    <input type="submit" value="Upload">
+  </form>
+
+  <div>
+    <h1>Select Column</h1>
+    <form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Select</button>
+    </form>
+  </div>
+{% endblock %}
+

@@ -1,0 +1,4 @@
+*.log
+
+/media/
+/Python-3.6.15/
